@@ -40,7 +40,7 @@ def calculate_shortest_path():
 
 # Configuración de la ventana principal
 root = tk.Tk()
-root.title("Algoritmo de Dijkstra")
+root.title("Dijkstra")
 
 # Etiqueta y entrada para el nodo de inicio
 label_start = tk.Label(root, text="Nodo de inicio (A, B, C, D):")
