@@ -23,50 +23,6 @@ def dijkstra(graph, start):
 
     return distances
 
-def calculate_shortest_path():
-    try:
-        start_node = entry_start.get()
-        graph = {
-            'A': {'B': 1, 'C': 4},
-            'B': {'A': 1, 'C': 2, 'D': 5},
-            'C': {'A': 4, 'B': 2, 'D': 1},
-            'D': {'B': 5, 'C': 1}
-        }
-
-        shortest_distances = dijkstra(graph, start_node)
-        result = "\n".join([f"Distancia a {node}: {distance}" for node, distance in shortest_distances.items()])
-        messagebox.showinfo("Resultados", result)
-
-    except KeyError:
-        messagebox.showerror("Error", "Nodo de inicio no válido. Usa A, B, C o D.")
-
-# Configuración de la ventana principal
-root = tk.Tk()
-root.title("Dijkstra")
-
-# Etiqueta y entrada para el nodo de inicio
-label_start = tk.Label(root, text="Nodo de inicio (A, B, C, D):")
-label_start.pack(pady=10)
-
-entry_start = tk.Entry(root)
-entry_start.pack(pady=10)
-
-# Botón para calcular
-button_calculate = tk.Button(root, text="Calcular Distancias", command=calculate_shortest_path)
-button_calculate.pack(pady=20)
-
-# Inicia la aplicación
-root.mainloop()
-print("nueva barra lateral: ")
-print("el numeros: ")
-
-for i in range(1, 11): 
-    print(i)
-print("nueva linea")
-print("nueva linea 2")
-print("nueva linea 3")
-print("la sucesion fibonacci es :")
-
 a, b = 0, 1
 
 while a < 100:
