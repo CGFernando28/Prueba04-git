@@ -1,61 +1,32 @@
-import tkinter as tk
-from tkinter import messagebox
-import heapq
-print("Hola mundo esto es un algoritmo dijkstra")
-print("esto es un prueba 1 de creador")
+import random
 
-def dijkstra(graph, start):
-    distances = {node: float('inf') for node in graph}
-    distances[start] = 0
-    priority_queue = [(0, start)]
+def jugar_adivina_numero():
+    print("¡Bienvenido al juego de adivinanza de números!")
+    numero_secreto = random.randint(1, 100)  # Genera un número entre 1 y 100
+    intentos = 0
+    max_intentos = 10
 
-    while priority_queue:
-        current_distance, current_node = heapq.heappop(priority_queue)
+    while intentos < max_intentos:
+        try:
+            suposicion = int(input("Adivina un número entre 1 y 100: "))
+            intentos += 1
 
-        if current_distance > distances[current_node]:
-            continue
+            if suposicion < 1 or suposicion > 100:
+                print("Por favor, elige un número entre 1 y 100.")
+                continue
 
-        for neighbor, weight in graph[current_node].items():
-            distance = current_distance + weight
-            if distance < distances[neighbor]:
-                distances[neighbor] = distance
-                heapq.heappush(priority_queue, (distance, neighbor))
+            if suposicion < numero_secreto:
+                print("Demasiado bajo. Intenta de nuevo.")
+            elif suposicion > numero_secreto:
+                print("Demasiado alto. Intenta de nuevo.")
+            else:
+                print(f"¡Felicidades! Adivinaste el número {numero_secreto} en {intentos} intentos.")
+                break
+        except ValueError:
+            print("Por favor, ingresa un número válido.")
 
-    return distances
+    if intentos == max_intentos:
+        print(f"Lo siento, has agotado tus intentos. El número era {numero_secreto}.")
 
-def calculate_shortest_path():
-    try:
-        start_node = entry_start.get()
-        graph = {
-            'A': {'B': 1, 'C': 4},
-            'B': {'A': 1, 'C': 2, 'D': 5},
-            'C': {'A': 4, 'B': 2, 'D': 1},
-            'D': {'B': 5, 'C': 1}
-        }
-
-        shortest_distances = dijkstra(graph, start_node)
-        result = "\n".join([f"Distancia a {node}: {distance}" for node, distance in shortest_distances.items()])
-        messagebox.showinfo("Resultados", result)
-
-    except KeyError:
-        messagebox.showerror("Error", "Nodo de inicio no válido. Usa A, B, C o D.")
-
-
-
-# Inicia la aplicación
-root.mainloop()
-print("nueva barra lateral: ")
-print("el numeros: ")
-
-for i in range(1, 11): 
-    print(i)
-print("nueva linea")
-print("nueva linea 2")
-print("nueva linea 3")
-print("la sucesion fibonacci es :")
-
-a, b = 0, 1
-
-while a < 100:
-    print(a, end=' ')
-    a, b = b, a+b
+if __name__ == "__main__":
+    jugar_adivina_numero()
