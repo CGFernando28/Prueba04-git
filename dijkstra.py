@@ -44,3 +44,18 @@ def calculate_shortest_path():
 
 # Inicia la aplicación
 root.mainloop()
+print("nueva barra lateral: ")
+print("el numeros: ")
+
+for i in range(1, 11): 
+    print(i)
+print("nueva linea")
+print("nueva linea 2")
+print("nueva linea 3")
+print("la sucesion fibonacci es :")
+
+a, b = 0, 1
+
+while a < 100:
+    print(a, end=' ')
+    a, b = b, a+b
