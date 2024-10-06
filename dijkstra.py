@@ -40,20 +40,7 @@ def calculate_shortest_path():
     except KeyError:
         messagebox.showerror("Error", "Nodo de inicio no válido. Usa A, B, C o D.")
 
-# Configuración de la ventana principal
-root = tk.Tk()
-root.title("Dijkstra")
 
-# Etiqueta y entrada para el nodo de inicio
-label_start = tk.Label(root, text="Nodo de inicio (A, B, C, D):")
-label_start.pack(pady=10)
-
-entry_start = tk.Entry(root)
-entry_start.pack(pady=10)
-
-# Botón para calcular
-button_calculate = tk.Button(root, text="Calcular Distancias", command=calculate_shortest_path)
-button_calculate.pack(pady=20)
 
 # Inicia la aplicación
 root.mainloop()
