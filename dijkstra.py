@@ -15,6 +15,7 @@ def jugar_adivina_numero():
                 print("Por favor, elige un número entre 1 y 100.")
                 continue
 
+<<<<<<< HEAD
             if suposicion < numero_secreto:
                 print("Demasiado bajo. Intenta de nuevo.")
             elif suposicion > numero_secreto:
@@ -24,9 +25,27 @@ def jugar_adivina_numero():
                 break
         except ValueError:
             print("Por favor, ingresa un número válido.")
+=======
+<<<<<<< HEAD
+=======
+        for neighbor, weight in graph[current_node].items():
+            distance = current_distance + weight
+            if distance < distances[neighbor]:
+                distances[neighbor] = distance
+                heapq.heappush(priority_queue, (distance, neighbor))
+>>>>>>> sexto
 
     if intentos == max_intentos:
         print(f"Lo siento, has agotado tus intentos. El número era {numero_secreto}.")
 
+<<<<<<< HEAD
 if __name__ == "__main__":
     jugar_adivina_numero()
+=======
+a, b = 0, 1
+
+while a < 100:
+    print(a, end=' ')
+    a, b = b, a+b
+>>>>>>> quinto
+>>>>>>> sexto
