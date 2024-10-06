@@ -1,51 +1,30 @@
-import random
+import tkinter as tk
+from tkinter import messagebox
+import heapq
+print("Hola mundo esto es un algoritmo dijkstra")
+print("esto es un prueba 1 de creador")
 
-def jugar_adivina_numero():
-    print("¡Bienvenido al juego de adivinanza de números!")
-    numero_secreto = random.randint(1, 100)  # Genera un número entre 1 y 100
-    intentos = 0
-    max_intentos = 10
+def dijkstra(graph, start):
+    distances = {node: float('inf') for node in graph}
+    distances[start] = 0
+    priority_queue = [(0, start)]
 
-    while intentos < max_intentos:
-        try:
-            suposicion = int(input("Adivina un número entre 1 y 100: "))
-            intentos += 1
+    while priority_queue:
+        current_distance, current_node = heapq.heappop(priority_queue)
 
-            if suposicion < 1 or suposicion > 100:
-                print("Por favor, elige un número entre 1 y 100.")
-                continue
+        if current_distance > distances[current_node]:
+            continue
 
-<<<<<<< HEAD
-            if suposicion < numero_secreto:
-                print("Demasiado bajo. Intenta de nuevo.")
-            elif suposicion > numero_secreto:
-                print("Demasiado alto. Intenta de nuevo.")
-            else:
-                print(f"¡Felicidades! Adivinaste el número {numero_secreto} en {intentos} intentos.")
-                break
-        except ValueError:
-            print("Por favor, ingresa un número válido.")
-=======
-<<<<<<< HEAD
-=======
         for neighbor, weight in graph[current_node].items():
             distance = current_distance + weight
             if distance < distances[neighbor]:
                 distances[neighbor] = distance
                 heapq.heappush(priority_queue, (distance, neighbor))
->>>>>>> sexto
 
-    if intentos == max_intentos:
-        print(f"Lo siento, has agotado tus intentos. El número era {numero_secreto}.")
+    return distances
 
-<<<<<<< HEAD
-if __name__ == "__main__":
-    jugar_adivina_numero()
-=======
 a, b = 0, 1
 
 while a < 100:
     print(a, end=' ')
     a, b = b, a+b
->>>>>>> quinto
->>>>>>> sexto
